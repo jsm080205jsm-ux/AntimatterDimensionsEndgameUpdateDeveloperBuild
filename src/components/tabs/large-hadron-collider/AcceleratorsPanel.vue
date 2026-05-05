@@ -1,6 +1,4 @@
 <script>
-import wordShift from "@/core/word-shift";
-  
 import Accelerator from "./Accelerator";
 
 export default {
