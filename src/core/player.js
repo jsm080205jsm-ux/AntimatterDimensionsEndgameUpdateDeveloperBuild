@@ -1353,15 +1353,15 @@ window.player = {
     largeHadronCollider: {
       accelerators: {
         potency: {
-          fill: DC.D0,
+          fill: 0,
           active: false
         },
         emptiness: {
-          fill: DC.D0,
+          fill: 0,
           active: false
         },
         cosmic: {
-          fill: DC.D0,
+          fill: 0,
           active: false
         }
       },
