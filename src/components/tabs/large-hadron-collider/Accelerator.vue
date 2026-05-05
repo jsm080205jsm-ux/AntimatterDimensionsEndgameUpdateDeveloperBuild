@@ -23,11 +23,6 @@ export default {
       effects: []
     };
   },
-  computed: {
-    accelerator() {
-      return this.accelerator;
-    }
-  },
   methods: {
     update() {
       this.isUnlocked = this.accelerator.isUnlocked;
