@@ -48,10 +48,7 @@ export default {
       >
         Reach {{ format(Decimal.pow10(1e200), 2, 2) }} Antimatter
       </div>
-      <div
-        v-if="!hasAccelerator"
-        class="c-large-hadron-collider-entropy"
-      >
+      <div class="c-large-hadron-collider-entropy">
         Excess Entropy in the universe has caused your Antimatter to decay past {{ format(amSoftcap, 2, 2) }},
         and has restricted it from exceeding {{ format(amHardcap, 2, 2) }}.
       </div>
