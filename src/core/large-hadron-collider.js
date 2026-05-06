@@ -152,7 +152,7 @@ class AcceleratorState extends GameMechanicState {
     const maxFill = LHC.acceleratorSpeed * diff / 1000;
     const pendFill = this.amountFilled + maxFill;
     const maxValue = this.config.percentage(this.fillCurrency.value);
-    this.amountFilled = Math.min(pendFill, maxValue);
+    this.amountFilled = Math.min(pendFill, Math.max(this.amountFilled, maxValue));
     this.checkMilestoneStates();
   }
 }
