@@ -1024,6 +1024,7 @@ export function celestialEternity(force, auto, specialConditions = {}) {
 
   if (true) {
     player.endgame.celDimExpansion.isBroken = false;
+    player.endgame.celDimExpansion.isBreakUnlocked = false;
   }
 
   resetCelestialInfinityRuns();
