@@ -72,6 +72,14 @@ export class PlayerProgress {
     return PlayerProgress.current.isEndgameUnlocked;
   }
 
+  static celestialInfinityUnlocked() {
+    return PlayerProgress.current.isCelestialInfinityUnlocked;
+  }
+
+  static celestialEternityUnlocked() {
+    return PlayerProgress.current.isCelestialEternityUnlocked;
+  }
+
   static seenAlteredSpeed() {
     const ec12 = EternityChallenge(12);
     return this.realityUnlocked() || ec12.completions > 0 || ec12.isRunning;
