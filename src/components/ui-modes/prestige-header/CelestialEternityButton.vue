@@ -72,9 +72,9 @@ export default {
   },
   methods: {
     update() {
+      this.canCelestialEternity = player.endgame.celDimExpansion.celestialInfinityPoints.gte(DC.NUMMAX);
       this.isVisible = this.canCelestialEternity || player.endgame.celDimExpansion.celestialEternities.gt(0);
       if (!this.isVisible) return;
-      this.canCelestialEternity = player.endgame.celDimExpansion.celestialInfinityPoints.gte(DC.NUMMAX);
       this.celestialEternityGoal.copyFrom(DC.NUMMAX);
       this.headerTextColored = player.options.headerTextColored;
 
