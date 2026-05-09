@@ -1022,7 +1022,7 @@ export function celestialEternity(force, auto, specialConditions = {}) {
 
   initializeResourcesAfterCelestialEternity();
 
-  if (true) {
+  if (!CelestialEternityUpgrade.startBreak.isBought) {
     player.endgame.celDimExpansion.isBroken = false;
     player.endgame.celDimExpansion.isBreakUnlocked = false;
   }
