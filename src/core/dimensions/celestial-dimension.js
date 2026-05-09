@@ -602,7 +602,7 @@ export class CelestialGalaxy {
     }
 
     if (CelestialGalaxy.requirementAt(CelestialGalaxy.remoteStart).amount.lt(currency)) {
-      let estimate = new Decimal(Decimal.log(currency.add(1).log10().div(CelestialGalaxy.requirementAt(CelestialGalaxy.remoteStart).amount), CelestialGalaxy.remoteGalaxyStrength))
+      let estimate = new Decimal(Decimal.log(currency.add(1).log10().div(CelestialGalaxy.requirementAt(CelestialGalaxy.remoteStart).amount.add(1).log10()), CelestialGalaxy.remoteGalaxyStrength))
         .add(CelestialGalaxy.remoteStart).floor();
       if (CelestialGalaxy.requirementAt(estimate).amount.lte(currency) && CelestialGalaxy.requirementAt(estimate.add(1)).amount.gt(currency)) {
         return Decimal.max(estimate.add(1), currGal);
