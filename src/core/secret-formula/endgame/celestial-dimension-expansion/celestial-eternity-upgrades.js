@@ -66,7 +66,7 @@ export const celestialEternityUpgrades = {
   celEternityAuto: {
     id: "celEternityAuto",
     cost: 1e10,
-    description: "Unlock an Autobuyer for Celestial Eternities"
+    description: "Unlock an Autobuyer for Celestial Eternities and improve the Celestial Crunch Autobuyer"
   },
   freeDimBoost: {
     id: "freeDimBoost",
