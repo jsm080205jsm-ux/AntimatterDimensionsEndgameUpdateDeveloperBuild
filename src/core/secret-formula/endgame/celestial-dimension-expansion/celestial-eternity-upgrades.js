@@ -53,20 +53,20 @@ export const celestialEternityUpgrades = {
     noLabel: false,
     isDecimal: true
   }),
-  celCrunchAuto: {
-    id: "celCrunchAuto",
-    cost: 1e3,
-    description: "Unlock an Autobuyer for Celestial Crunches"
-  },
   bulkCelGalaxies: {
     id: "bulkCelGalaxies",
-    cost: 1e6,
+    cost: 1e3,
     description: "Unlock the buy max Celestial Galaxy Autobuyer mode"
   },
   instaAutos: {
     id: "instaAutos",
-    cost: 1e10,
+    cost: 1e6,
     description: "Celestial Dimension-related Autobuyer intervals are now Instant"
+  },
+  celEternityAuto: {
+    id: "celCrunchAuto",
+    cost: 1e10,
+    description: "Unlock an Autobuyer for Celestial Eternities"
   },
   freeDimBoost: {
     id: "freeDimBoost",
