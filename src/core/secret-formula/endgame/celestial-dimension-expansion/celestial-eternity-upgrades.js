@@ -90,8 +90,8 @@ export const celestialEternityUpgrades = {
       with ${format(1e25, 2, 2)} CIP`,
     effect: 1e25
   },
-  startBreak: {
-    id: "startBreak",
+  startBreakInf: {
+    id: "startBreakInf",
     cost: 1e40,
     description: "Start with all Celestial Break Infinity Upgrades bought"
   },
