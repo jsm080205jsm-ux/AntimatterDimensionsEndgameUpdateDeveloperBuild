@@ -68,31 +68,46 @@ export const celestialEternityUpgrades = {
     cost: 1e6,
     description: "Celestial Dimension-related Autobuyer intervals are now Instant"
   },
+  x2CIPAuto: {
+    id: "x2CIPAuto",
+    cost: 1e10,
+    description: () => `Unlock an Autobuyer for the ${formatX(2)} CIP Multiplier Upgrade`
+  },
   betterCelCrunchAuto: {
     id: "betterCelCrunchAuto",
-    cost: 1e10,
+    cost: 1e15,
     description: "Improve the Celestial Crunch Autobuyer"
   },
-  celEternityAuto: {
-    id: "celEternityAuto",
-    cost: 1e15,
-    description: () => `Unlock an Autobuyer for Celestial Eternities and the ${formatX(2)} CIP Multiplier Upgrade`
+  startInf: {
+    id: "startInf",
+    cost: 1e20,
+    description: "Start with all Celestial Infinity Upgrades bought"
   },
   startingBoosts: {
     id: "startingBoosts",
-    cost: 1e25,
+    cost: 1e30,
     description: () => `Start Cel Crunches and Cel Eternities with ${format(1e25, 2, 2)} Cel Matter, and Cel Eternities
       with ${format(1e25, 2, 2)} CIP`,
     effect: 1e25
   },
+  startBreak: {
+    id: "startBreak",
+    cost: 1e40,
+    description: "Start with all Celestial Break Infinity Upgrades bought"
+  },
+  celEternityAuto: {
+    id: "celEternityAuto",
+    cost: 1e50,
+    description: "Unlock an Autobuyer for Celestial Eternities"
+  },
   freeDimBoost: {
     id: "freeDimBoost",
-    cost: 1e40,
+    cost: 1e65,
     description: "Purchasing Celestial Dimension Boosts no longer resets anything"
   },
   freeGalaxy: {
     id: "freeGalaxy",
-    cost: 1e70,
+    cost: 1e80,
     description: "Purchasing Celestial Galaxies no longer resets anything"
   },
   betterCelEternityAuto: {
