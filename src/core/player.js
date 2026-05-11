@@ -412,7 +412,7 @@ window.player = {
     totalCelestialEternityCelMatter: DC.D0,
     totalCelestialInfinityCelMatter: DC.D0,
     totalDivineMatter: DC.E1,
-    totalStarRunDivineMatter: DC.E1,
+    totalCondenseDivineMatter: DC.E1,
     recentInfinities: Array.range(0, 10).map(() =>
       [DC.BEMAX, Number.MAX_VALUE, DC.D1, DC.D1, ""]),
     recentEternities: Array.range(0, 10).map(() =>
