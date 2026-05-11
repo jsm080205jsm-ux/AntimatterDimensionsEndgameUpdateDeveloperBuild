@@ -222,3 +222,18 @@ export const DivineDimensions = {
     return DC.D1.sub(Decimal.pow(0.8, logD)).toNumber();
   }
 };
+
+export function resetForDivineStars() {
+  if (Currency.divineMatter.lt(DC.NUMMAX)) return;
+  Endgame.resetNoReward();
+  DivineDimensions.fullReset();
+  if (true) {
+    let upgR = [];
+    for (let upgL = 0; upgL < DivinityUpgrades.all.filter(u => u.layer !== 1).length; upgL++) {
+      upgR.push(DivinityUpgrades.all.filter(u => u.layer !== 1)[upgL].id)
+    }
+    upgR.push("divineL1U5");
+    player.celestials.pelle.divineUpgrades = new Set(upgR);
+  }
+  player.celestials.pelle.divinity.divineStars = player.celestials.pelle.divinity.divineStars.add(gainedDivineStars());
+};
