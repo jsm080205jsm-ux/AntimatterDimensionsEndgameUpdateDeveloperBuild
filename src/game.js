@@ -771,6 +771,8 @@ export function gameLoop(passedDiff, options = {}) {
     player.records.thisCelestialEternity.time = player.records.thisCelestialEternity.time.add(diff);
     player.records.thisCelestialReality.realTime += realDiff;
     player.records.thisCelestialReality.time = player.records.thisCelestialReality.time.add(diff);
+    player.records.thisCondense.time = player.records.thisCondense.time.add(diff);
+    player.records.thisCondense.realTime += realDiff;
   }
 
   DeltaTimeState.update(realDiff, diff);
