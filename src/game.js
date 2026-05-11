@@ -91,10 +91,10 @@ export function playerCelestialInfinityUpgradesOnReset() {
       "celDimPurchaseBuff", "celDimboostBuff", "celGalaxyBuff"]
   );
 
-  if (false) {
+  if (CelestialEternityUpgrade.startBreakInf.isBought) {
     player.endgame.celDimExpansion.celestialInfinityUpgrades = celestialBreakInfinityUpgrades;
     player.endgame.celDimExpansion.celestialInfinityRebuyables = [8, 7, 10, 10, 10, 10];
-  } else if (false) {
+  } else if (CelestialEternityUpgrade.startInf.isBought) {
     player.endgame.celDimExpansion.celestialInfinityUpgrades = celestialInfinityUpgrades;
     player.endgame.celDimExpansion.celestialInfinityRebuyables = [0, 0, 0, 0, 0, 0];
   } else {
