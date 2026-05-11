@@ -728,7 +728,7 @@ Currency.divineMatter = new class extends DecimalCurrency {
   set value(value) {
     const newValue = Decimal.min(value, DivineDimensions.HARDCAP);
     player.celestials.pelle.divinity.divineMatter = newValue;
-    player.records.thisCondense.maxVM = player.records.thisCondense.maxVM.max(value);
+    player.records.thisCondense.maxVM = player.records.thisCondense.maxVM.max(newValue);
   }
 
   add(amount) {
