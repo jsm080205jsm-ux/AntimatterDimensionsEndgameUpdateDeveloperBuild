@@ -746,3 +746,11 @@ Currency.nullMatter = new class extends DecimalCurrency {
     player.endgame.largeHadronCollider.void.nullMatter = newValue;
   }
 }();
+
+Currency.divineStars = new class extends DecimalCurrency {
+  get value() { return player.celestials.pelle.divinity.divineStars; }
+  set value(value) {
+    const newValue = new Decimal(value);
+    player.celestials.pelle.divinity.divineStars = newValue;
+  }
+}();
