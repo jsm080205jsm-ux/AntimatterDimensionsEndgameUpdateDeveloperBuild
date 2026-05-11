@@ -33,7 +33,7 @@ export class PlayerProgress {
   }
 
   get areDivineStarsUnlocked() {
-    return new Decimal(this._player.celestials.pelle.divinity.divineStars).gt(0);
+    return new Decimal(this._player.celestials.pelle.divinity.condenses).gt(0);
   }
 
   get hasFullCompletion() {
