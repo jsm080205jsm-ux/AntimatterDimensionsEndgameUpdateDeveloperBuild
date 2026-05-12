@@ -157,7 +157,7 @@ export const DivineDimensions = {
   get energyPerSecond() {
     const divineEnergyMults = DC.D1.timesEffectOf(DivinityUpgrade.divineL1U7).times(
       DivinityMilestone.hadronEmpowerment.isReached ? 77 : 1).times(Accelerators.potency.effectValue3);
-    return Decimal.pow(100, Decimal.log10(DivineDimension(1).productionPerSecond).div(100).sub(1)).times(divineEnergyMults);
+    return Decimal.pow(100, Decimal.log10(DivineDimension(1).productionPerSecond.max(1)).div(100).sub(1)).times(divineEnergyMults);
   },
 
   resetAmount() {
@@ -228,6 +228,7 @@ export function resetForDivineStars() {
   if (Currency.divineMatter.lt(DC.NUMMAX)) return;
   Endgame.resetNoReward();
   DivineDimensions.fullReset();
+  Currency.divineMatter.reset();
   if (true) {
     let upgR = [];
     for (let upgL = 0; upgL < DivinityUpgrades.all.filter(u => u.layer !== 1).length; upgL++) {
