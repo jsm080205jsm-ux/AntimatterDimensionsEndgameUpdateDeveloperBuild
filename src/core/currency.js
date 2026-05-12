@@ -732,6 +732,15 @@ Currency.divineMatter = new class extends DecimalCurrency {
     player.records.thisCondense.maxVM = player.records.thisCondense.maxVM.max(newValue);
   }
 
+  get startingValue() {
+    return Effects.max(10).toDecimal();
+  }
+
+  reset() {
+    super.reset();
+    player.records.thisCondense.maxVM = this.startingValue;
+  }
+
   add(amount) {
     super.add(amount);
     if (amount.gt(0)) {
