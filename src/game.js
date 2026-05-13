@@ -402,6 +402,11 @@ export function addCelestialEternityTime(time, realTime, cep, celeternities) {
   player.records.recentCelestialEternities.unshift([time, realTime, cep, celeternities]);
 }
 
+export function addCondenseTime(time, realTime, vs, condenses) {
+  player.records.recentCondenses.pop();
+  player.records.recentCondenses.unshift([time, realTime, vs, condenses]);
+}
+
 export function gainedInfinities() {
   if (EternityChallenge(4).isRunning) {
     return DC.D1;
@@ -464,6 +469,10 @@ export function gainedCelestialEternityPoints() {
     gainedCelestialInfinityPoints()).add(1).log10().div(308).sub(0.7)).times(totalCEPMult());
 
   return cep.floor();
+}
+
+export function gainedCondenses() {
+  return DC.D1;
 }
 
 export function gainedDivineStars() {
