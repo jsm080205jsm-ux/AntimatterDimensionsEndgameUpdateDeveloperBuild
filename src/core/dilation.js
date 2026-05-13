@@ -184,8 +184,7 @@ export function getDilationGainPerSecond() {
     );
   dtRate = dtRate.times(getAdjustedGlyphEffect("dilationDT"));
   dtRate = dtRate.times(ShopPurchase.dilatedTimePurchases.currentMult);
-  dtRate = dtRate.times(
-    Decimal.clampMin(Decimal.log10(Replicanti.amount.add(1)).times(getAdjustedGlyphEffect("replicationdtgain")), 1));
+  dtRate = dtRate.times(ReplicantiMultipliers.dtMult);
   if (Enslaved.isRunning && !dtRate.eq(0)) dtRate = Decimal.pow10(Decimal.pow(dtRate.plus(1).log10(), 0.85).sub(1));
   if (V.isRunning) dtRate = dtRate.pow(0.5);
   dtRate = dtRate.times(Alpha.isRunning ? getGameSpeedupForDisplay().pow(0.01) : getGameSpeedupForDisplay());
