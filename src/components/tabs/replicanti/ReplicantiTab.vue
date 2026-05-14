@@ -31,15 +31,15 @@ export default {
       hasDEMult: false,
       multDE: new Decimal(),
       hasPow: false,
-      pow: new Decimal(),
+      pow: 0,
       hasTDPow: false,
-      powTD: new Decimal(),
+      powTD: 0,
       hasDTPow: false,
-      powDT: new Decimal(),
+      powDT: 0,
       hasIPPow: false,
-      powIP: new Decimal(),
+      powIP: 0,
       hasDEPow: false,
-      powDE: new Decimal(),
+      powDE: 0,
       hasRaisedCap: false,
       replicantiCap: new Decimal(),
       capMultText: "",
@@ -176,15 +176,15 @@ export default {
       this.hasDEMult = !player.disablePostReality && Alpha.currentStage >= 21;
       this.multDE.copyFrom(ReplicantiMultipliers.deMult);
       this.hasPow = ResurgenceUpgrade.repSurge.isBought;
-      this.pow.copyFrom(ReplicantiMultipliers.idPow);
+      this.pow = ReplicantiMultipliers.idPow;
       this.hasTDPow = ResurgenceUpgrade.repSurge.isBought && DilationUpgrade.tdMultReplicanti.isBought;
-      this.powTD.copyFrom(ReplicantiMultipliers.tdPow);
+      this.powTD = ReplicantiMultipliers.tdPow;
       this.hasDTPow = ResurgenceUpgrade.repSurge.isBought && getAdjustedGlyphEffect("replicationdtgain").neq(0) && !Pelle.isDoomed;
-      this.powDT.copyFrom(ReplicantiMultipliers.dtPow);
+      this.powDT = ReplicantiMultipliers.dtPow;
       this.hasIPPow = ResurgenceUpgrade.repSurge.isBought && !player.disablePostReality && AlchemyResource.exponential.amount > 0 && !this.isDoomed;
-      this.powIP.copyFrom(ReplicantiMultipliers.ipPow);
+      this.powIP = ReplicantiMultipliers.ipPow;
       this.hasDEPow = ResurgenceUpgrade.repSurge.isBought && !player.disablePostReality && Alpha.currentStage >= 21;
-      this.powDE.copyFrom(ReplicantiMultipliers.dePow);
+      this.powDE = ReplicantiMultipliers.dePow;
       this.isUncapped = PelleRifts.vacuum.milestones[1].canBeApplied;
       this.hasRaisedCap = (EffarigUnlock.infinity.isUnlocked && !this.isUncapped) || (Pelle.isDoomed && PelleCelestialUpgrade.replicantiCapIncrease.canBeApplied);
       this.replicantiCap.copyFrom(replicantiCap());
