@@ -1000,6 +1000,11 @@ function giveCelestialEternityRewards(auto) {
     newCelestialEternities
   );
 
+  player.records.bestCelestialEternity.time =
+    Decimal.min(player.records.bestCelestialEternity.time, player.records.thisCelestialEternity.time);
+  player.records.bestCelestialEternity.realTime =
+    Math.min(player.records.bestCelestialEternity.realTime, player.records.thisCelestialEternity.realTime);
+
   player.records.thisCelestialReality.bestCelestialEternitiesPerMs = player.records.thisCelestialReality.bestCelestialEternitiesPerMs.clampMin(
     newCelestialEternities.div(Math.clampMin(33, player.records.thisCelestialEternity.realTime))
   );
