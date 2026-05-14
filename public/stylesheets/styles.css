@@ -10356,6 +10356,69 @@ kbd {
 
 /* #endregion alpha tab */
 
+.l-void-run {
+  display: inline-flex;
+  flex-direction: column;
+  width: 400px;
+  align-items: center;
+  margin-top: 1rem;
+  margin-left: 3rem;
+  padding: 1rem;
+}
+
+.l-void-run-button {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+  height: 15rem;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  border-style: none;
+  border-radius: 50%;
+  margin: 2rem;
+}
+
+.c-void-run-button {
+  font-size: 10rem;
+  font-weight: bold;
+  transition-duration: 0.2s;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.c-void-run-button--not-running {
+  z-index: 0;
+  color: white;
+  background-color: black;
+  animation: a-void-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes a-void-glow {
+  0% { box-shadow: inset 0 0 0.3rem 0 white; }
+  50% { box-shadow: inset 0 0 2rem 0 white; }
+  100% { box-shadow: inset 0 0 0.3rem 0 white; }
+}
+
+.c-void-run-button--running {
+  z-index: 0;
+  color: white;
+  animation: a-void-run-glow 12s ease-in-out infinite alternate;
+}
+
+@keyframes a-void-run-glow {
+  0% { background-color: #000040; }
+  25% { background-color: black; }
+  50% { background-color: #400040; }
+  75% { background-color: black; }
+  100% { background-color: #000040; }
+}
+
+.c-void-run-button__inner--running,
+.c-void-run-button__inner--not-running {
+  margin-top: -3rem;
+}
+
 .c-performance-stats {
   width: 25rem;
   position: fixed;
