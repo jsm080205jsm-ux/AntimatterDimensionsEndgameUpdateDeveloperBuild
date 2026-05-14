@@ -33,9 +33,6 @@ export default {
         "c-void-run-button--not-running": !this.isRunning,
       };
     },
-    runButtonInnerClass() {
-      return this.isRunning ? "c-void-run-button__inner--running" : "c-void-run-button__inner--not-running";
-    },
   },
   methods: {
     update() {
@@ -79,7 +76,6 @@ export default {
         @click="startRun"
       >
         <div
-          :class="runButtonInnerClass"
           :button-symbol="voidText"
         >
           {{ voidText }}
