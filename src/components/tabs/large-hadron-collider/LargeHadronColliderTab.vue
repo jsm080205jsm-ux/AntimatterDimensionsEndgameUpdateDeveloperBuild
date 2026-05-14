@@ -43,6 +43,9 @@ export default {
       this.amHardcap.copyFrom(Pelle.isDoomed ? DC.ENUMMAX : LHC.breakingPoint);
       this.isRunning = player.endgame.largeHadronCollider.void.isRunning;
     },
+    startRun() {
+      enterTheVoid();
+    }
   }
 };
 </script>
