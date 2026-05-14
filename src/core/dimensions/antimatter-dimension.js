@@ -741,7 +741,7 @@ export const AntimatterDimensions = {
       let amountGained = pendAmount.div(amountLost);
       Currency.antimatter.add(amountGained.times(diff).div(1000));
       let coversionToNull = Decimal.log10(amountLost.max(1)).pow(Decimal.log10(Decimal.log10(amountLost.max(1)).max(1)));
-      Currency.nullMatter.add(conversionToNull);
+      Currency.nullMatter.add(conversionToNull.times(diff).div(1000));
     }
     if (NormalChallenge(12).isRunning) {
       AntimatterDimension(2).produceCurrency(Currency.antimatter, diff);
