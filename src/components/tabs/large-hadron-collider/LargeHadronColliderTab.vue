@@ -26,7 +26,7 @@ export default {
       return `Your Hadrons are moving at ${format(this.hadronSpeed, 3, 3)} m/s`;
     },
     voidText() {
-      return "[Enter the Void.]";
+      return this.isRunning ? "[Exit the Void.]" : "[Enter the Void.]";
     },
     runButtonOuterClass() {
       return {
@@ -52,7 +52,8 @@ export default {
         Decimal.log10(Decimal.log10(Decimal.pow(AntimatterDimension(1).productionPerSecond, 0.01).max(1)).max(1))));
     },
     startRun() {
-      enterTheVoid();
+      if (this.isRunning) exitTheVoid();
+      else enterTheVoid();
     }
   }
 };
