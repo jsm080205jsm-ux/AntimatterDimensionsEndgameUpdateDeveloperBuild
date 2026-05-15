@@ -93,6 +93,12 @@ export function getDimensionFinalMultiplierUncached(tier) {
 
   if (!player.disablePostReality) multiplier = multiplier.pow(AlphaUnlocks.timestudy181.effects.buff.effectOrDefault(1));
 
+  if (player.endgame.largeHadronCollider.void.isRunning) {
+    multiplier = multiplier.powEffectOf(Accelerators.potency._milestones[0]);
+    multiplier = multiplier.pow(Accelerators.emptiness.effectValue1);
+    multiplier = multiplier.powEffectOf(Accelerators.emptiness._milestones[0]);
+  }
+
   multiplier = dilateMultiplier(multiplier, Achievement(231).effectOrDefault(1));
 
   multiplier = dilateMultiplier(multiplier, EtherealStars.red.reward);
