@@ -13,7 +13,10 @@ export default {
       accelPower: 1,
       amSoftcap: new Decimal(),
       amHardcap: new Decimal(),
-      isRunning: false
+      isRunning: false,
+      highestAntimatter: new Decimal(),
+      nullMatter: new Decimal(),
+      nullPerSecond: new Decimal()
     };
   },
   computed: {
@@ -42,6 +45,10 @@ export default {
       this.amSoftcap.copyFrom(Pelle.isDoomed ? DC.E9E15 : Decimal.pow10(1e200));
       this.amHardcap.copyFrom(Pelle.isDoomed ? DC.ENUMMAX : LHC.breakingPoint);
       this.isRunning = player.endgame.largeHadronCollider.void.isRunning;
+      this.highestAntimatter.copyFrom(player.endgame.largeHadronCollider.void.highestAntimatter);
+      this.nullMatter.copyFrom(player.endgame.largeHadronCollider.void.nullMatter);
+      this.nullPerSecond.copyFrom(Decimal.log10(Decimal.pow(AntimatterDimension(1).productionPerSecond, 0.01).max(1)).pow(
+        Decimal.log10(Decimal.log10(Decimal.pow(AntimatterDimension(1).productionPerSecond, 0.01).max(1)).max(1))));
     },
     startRun() {
       enterTheVoid();
@@ -72,6 +79,10 @@ export default {
         Excess Entropy in the universe has caused your Antimatter to decay past {{ format(amSoftcap, 2, 2) }},
         and has restricted it from exceeding {{ format(amHardcap, 2, 2) }}.
       </div>
+    </div>
+    <div v-if="highestAntimatter.gt(10)">
+      <span class="c-void-antimatter-amount">[Your highest Antimatter inside The Void is {{ format(highestAntimatter, 2, 1) }}.]</span>
+      <span class="c-null">[You have {{ format(nullMatter, 2, 2) }} Null Matter. +{{ format(nullPerSecond, 2, 2) }}/s]</span>
     </div>
     <div class="l-void-run">
       <div
@@ -114,5 +125,18 @@ export default {
   font-size: 2rem;
   font-weight: bold;
   color: red;
+}
+
+.c-void-antimatter-amount {
+  position: relative;
+  font-size: 1rem;
+  color: red;
+}
+
+.c-null {
+  position: relative;
+  font-size: 2rem;
+  color: black;
+  text-shadow: 0 0 0.2rem white;
 }
 </style>
