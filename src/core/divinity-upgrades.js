@@ -24,7 +24,7 @@ export class DivinityUpgradeState extends SetPurchasableMechanicState {
   }
 
   get isEffectActive() {
-    return !player.disablePostReality;
+    return !player.disablePostReality && this.isBought;
   }
 }
 
