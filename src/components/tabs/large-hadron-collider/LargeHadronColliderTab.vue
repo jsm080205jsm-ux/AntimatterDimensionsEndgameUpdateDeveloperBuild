@@ -1,10 +1,12 @@
 <script>
 import AcceleratorsPanel from "./AcceleratorsPanel";
+import NullUpgradesTabComponent from "./NullUpgradesTabComponent";
 
 export default {
   name: "LargeHadronColliderTab",
   components: {
-    AcceleratorsPanel
+    AcceleratorsPanel,
+    NullUpgradesTabComponent
   },
   data() {
     return {
@@ -101,6 +103,7 @@ export default {
         </div>
       </div>
     </div>
+    <NullUpgradesTabComponent />
   </div>
 </template>
 
