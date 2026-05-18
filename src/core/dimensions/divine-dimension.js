@@ -258,6 +258,7 @@ function giveCondenseRewards(auto) {
   );
   player.records.bestCondense.bestVSminSupernova =
     player.records.bestCondense.bestVSminSupernova.max(player.records.thisCondense.bestVSmin);
+  player.records.thisCondense.bestVSmin = DC.D0;
 }
 
 export function resetForDivineStars() {
