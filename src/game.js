@@ -224,7 +224,7 @@ function totalEPMult() {
     if (!player.disablePostReality) ep = ep.times(AlphaUnlocks.timestudy61.effects.buff.effectOrDefault(1));
     return ep;
   }
-  return getAdjustedGlyphEffect("cursedEP")
+  let ep = getAdjustedGlyphEffect("cursedEP")
     .times(ShopPurchase.EPPurchases.currentMult)
     .timesEffectsOf(
       EternityUpgrade.epMult,
@@ -234,6 +234,8 @@ function totalEPMult() {
       TimeStudy(123),
       RealityUpgrade(12)
     ).times(getAdjustedGlyphEffect("timeEP")).times(player.disablePostReality ? 1 : AlphaUnlocks.timestudy61.effects.buff.effectOrDefault(1));
+  if (LHC.voidRunning) ep = ep.timesEffectOf(NullUpgrade.eternityPointMult);
+  return ep;
 }
 
 export function gainedEternityPoints() {
@@ -441,6 +443,7 @@ export function gainedInfinities() {
     Ra.unlocks.continuousTTBoost.effects.infinity
   );
   infGain = infGain.times(getAdjustedGlyphEffect("infinityinfmult"));
+  if (LHC.voidRunning) infGain = infGain.timesEffectOf(NullUpgrade.infinityMult);
   infGain = infGain.powEffectOf(SingularityMilestone.infinitiedPow);
   if (!player.disablePostReality) infGain = infGain.pow(AlphaUnlocks.eternityChallenge10.effects.buff.effectOrDefault(1));
   return infGain;
