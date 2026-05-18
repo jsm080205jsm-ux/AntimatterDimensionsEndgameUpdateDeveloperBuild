@@ -241,6 +241,14 @@ export const CelestialDimensions = {
     return DC.E1.sub(Decimal.pow(player.records.totalCelMatter.add(1).log10().add(1).log10().sub(3).max(0).add(1), 1.25).sub(1)).max(1).toNumber();
   },
 
+  get MASS_OVERFLOW() {
+    return DC.E2E7;
+  },
+
+  get MASS_OVERFLOW_MAG() {
+    return DC.E2.toNumber();
+  },
+
   get softcapPow() {
     const reduction = Effects.product(EndgameMastery(84), Achievement(225));
     const extraReduction = DivinityMilestone.firstDivine.isReached && !player.disablePostReality ? 0.9 : 1;
