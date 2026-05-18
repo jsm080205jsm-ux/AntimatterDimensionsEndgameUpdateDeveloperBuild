@@ -86,8 +86,8 @@ export default {
       this.lightHadrons = hadrons.light;
       this.darkHadrons = hadrons.dark;
       this.exoticHadrons = hadrons.exotic;
-      this.percentageCap = 100 + Math.pow((Accelerators.emptiness.effectValue2 - 1) * 100, 2);
-      this.hadronTimer.copyFrom(Hadrons.timeFactor.div(this.percentageCap));
+      this.percentageCap = (100 + Math.pow((Accelerators.emptiness.effectValue2 - 1) * 100, 2)) / 100;
+      this.hadronTimer.copyFrom(Hadrons.timeFactor.div(this.percentageCap * 100));
       this.effect1.copyFrom(Hadrons.singularityMultiplier);
       this.effect2.copyFrom(Hadrons.darkMatterCapMultiplier);
       this.effect3.copyFrom(Hadrons.darkEnergyAscensionBoost);
