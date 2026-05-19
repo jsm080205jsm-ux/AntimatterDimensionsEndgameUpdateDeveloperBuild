@@ -283,7 +283,7 @@ export function enterTheVoid() {
   recalculateAllGlyphs();
   Tab.dimensions.antimatter.show(false);
   if (NullUpgrade.ncComp.isBought) NormalChallenges.completeAll();
-  if (NullUpgrade.startBroken.isBought) player.break = true;
+  if (NullUpgrade.alwaysBroken.isBought) player.break = true;
   if (NullUpgrade.icComp.isBought) InfinityChallenges.completeAll();
   if (NullUpgrade.repUnl.isBought) Replicanti.unlock(true);
   if (NullUpgrade.eterMiles.isBought) Currency.eternities.bumpTo(100);
