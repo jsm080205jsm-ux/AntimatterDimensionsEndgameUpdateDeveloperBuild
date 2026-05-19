@@ -94,7 +94,7 @@ export const nullUpgrades = {
   timeDimensionMult: rebuyable({
     name: "Timeless Triviality",
     id: 6,
-    initialCost: 1e14,
+    initialCost: 1e15,
     costIncrease: 1e7,
     maxUpgrades: Number.MAX_VALUE,
     effect: value => Decimal.pow10(Math.pow(value, 2)),
@@ -106,7 +106,7 @@ export const nullUpgrades = {
   eternityMult: rebuyable({
     name: "Undying Uselessness",
     id: 7,
-    initialCost: 1e16,
+    initialCost: 1e18,
     costIncrease: 1e8,
     maxUpgrades: Number.MAX_VALUE,
     effect: value => Decimal.pow(1.25, value),
@@ -118,7 +118,7 @@ export const nullUpgrades = {
   dilatedTimeMult: rebuyable({
     name: "Inflated Ineffectiveness",
     id: 8,
-    initialCost: 1e18,
+    initialCost: 1e40,
     costIncrease: 1e9,
     maxUpgrades: Number.MAX_VALUE,
     effect: value => Decimal.pow(2, value),
@@ -130,7 +130,7 @@ export const nullUpgrades = {
   tachyonParticleMult: rebuyable({
     name: "Protracted Pointlessness",
     id: 9,
-    initialCost: 1e20,
+    initialCost: 1e45,
     costIncrease: 1e10,
     maxUpgrades: Number.MAX_VALUE,
     effect: value => Decimal.pow(2, value),
