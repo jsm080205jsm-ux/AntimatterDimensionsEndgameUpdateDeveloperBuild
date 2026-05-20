@@ -178,7 +178,7 @@ export const nullUpgrades = {
     name: "There was an AI made of dust",
     id: "limerick1",
     cost: Decimal.pow10(30),
-    description: () => `Achievement ${formatInt(111)}’s effect now applies while inside The Void`
+    description: () => `Achievement ${formatInt(111)} and ${formatInt(118)}’s effects now apply while inside The Void`
   },
   limerick2: {
     name: "Whose poetry gained it man’s trust",
