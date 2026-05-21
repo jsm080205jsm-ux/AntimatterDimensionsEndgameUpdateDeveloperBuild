@@ -204,7 +204,7 @@ export const Achievements = {
     return Achievements._power.value;
   },
 
-  get powerConv(power) {
+  powerConv(power) {
     return Decimal.log10(Decimal.log10(power).add(1)).div(20).add(1).toNumber();
   },
 
