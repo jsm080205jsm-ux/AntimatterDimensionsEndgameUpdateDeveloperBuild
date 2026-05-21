@@ -218,7 +218,6 @@ export function tachyonGainMultiplier() {
     if (PelleRealityUpgrade.paradoxicallyAttain.canBeApplied) pelleTP = pelleTP.timesEffectOf(RealityUpgrade(8));
     if (PelleRealityUpgrade.paradoxicalForever.canBeApplied) pelleTP = pelleTP.timesEffectOf(RealityUpgrade(15));
     pelleTP = pelleTP.timesEffectOf(Ra.unlocks.gameSpeedTachyonMult);
-    if (ResurgenceUpgrade.achSurge.isBought && !player.disablePostReality) pelleTP = pelleTP.pow(Achievements.powerConv(RealityUpgrade(8).effectOrDefault(1)));
     return pelleTP;
   }
   const pow = Enslaved.isRunning ? Enslaved.tachyonNerf : 1;
@@ -236,8 +235,6 @@ export function tachyonGainMultiplier() {
   if (LHC.voidRunning) mult = mult.timesEffectOf(NullUpgrade.tachyonParticleMult);
 
   mult = mult.pow(pow);
-
-  if (ResurgenceUpgrade.achSurge.isBought && !player.disablePostReality) mult = mult.pow(Achievements.powerConv(RealityUpgrade(8).effectOrDefault(1)));
   
   return mult;
 }
@@ -266,7 +263,9 @@ export function getBaseTP(antimatter, requireEternity) {
 
 // Returns the TP that would be gained this run
 export function getTP(antimatter, requireEternity) {
-  return getBaseTP(antimatter, requireEternity).times(tachyonGainMultiplier()).pow(player.disablePostReality ? 1 : AlphaUnlocks.dilatedEternity.effects.buff.effectOrDefault(1));
+  let pend = getBaseTP(antimatter, requireEternity).times(tachyonGainMultiplier()).pow(player.disablePostReality ? 1 : AlphaUnlocks.dilatedEternity.effects.buff.effectOrDefault(1));
+  if (ResurgenceUpgrade.achSurge.isBought && !player.disablePostReality) pend = pend.pow(Achievements.powerConv(RealityUpgrade(8).effectOrDefault(1)));
+  return pend;
 }
 
 // Returns the amount of TP gained, subtracting out current TP; used for displaying gained TP, text on the
