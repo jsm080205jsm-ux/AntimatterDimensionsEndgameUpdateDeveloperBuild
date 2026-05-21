@@ -92,7 +92,7 @@ class DivineDimensionState extends DimensionState {
     return new ExponentialCostScaling({
       baseCost: this.baseCost,
       baseIncrease: this.costMultiplier,
-      costScale: 10,
+      costScale: Player.divineDimensionMultDecrease,
       scalingCostThreshold: Number.MAX_VALUE
     });
   }
