@@ -322,7 +322,7 @@ class TimeDimensionState extends DimensionState {
 
     if (DilationUpgrade.tdMultReplicanti.isBought && ResurgenceUpgrade.repSurge.isBought && !player.disablePostReality) mult = mult.pow(ReplicantiMultipliers.tdPow);
 
-    if (ResurgenceUpgrade.achSurge.isBought && !player.disablePostReality) mult = mult.pow(Achievements.powerConv(Achievements.power));
+    if (ResurgenceUpgrade.achSurge.isBought && !player.disablePostReality) mult = mult.pow(Achievements.powerConv(EternityUpgrade.tdMultAchs.effectOrDefault(1)));
 
     mult = dilateMultiplier(mult, EtherealStars.purple.reward);
 
