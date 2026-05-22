@@ -102,10 +102,10 @@ export default {
       <div
         :class="runButtonOuterClass"
         @click="startRun"
-        :style="glitchAnim"
       >
         <div
           :button-symbol="voidText"
+          :style="glitchAnim()"
         >
           {{ voidText }}
         </div>
