@@ -38,6 +38,13 @@ export default {
         "c-void-run-button--not-running": !this.isRunning,
       };
     },
+    glitchAnim() {
+      const flux = Math.random() / 4;
+      const negFlux = Math.random() / -4;
+      return {
+        "text-shadow": `${negFlux}rem 0 red, ${flux}rem 0 blue`,
+      };
+    },
   },
   methods: {
     update() {
@@ -95,6 +102,7 @@ export default {
       <div
         :class="runButtonOuterClass"
         @click="startRun"
+        :style="glitchAnim"
       >
         <div
           :button-symbol="voidText"
