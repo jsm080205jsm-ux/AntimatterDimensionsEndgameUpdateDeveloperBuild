@@ -102,7 +102,7 @@ export default {
       <div
         :class="runButtonOuterClass"
         @click="startRun"
-        :style="glitchAnim"
+        :style="glitchAnim()"
       >
         <div
           :button-symbol="voidText"
