@@ -17,7 +17,10 @@ export default {
       canExtend: false,
       isBetter: false,
       nextStarReq: 0,
-      stellarProd: new Decimal()
+      stellarProd: new Decimal(),
+      allStarsUnlocked: false,
+      isStarPowerUnlocked: false,
+      canUnlockStarPower: false
     };
   },
   computed: {
@@ -37,6 +40,13 @@ export default {
         "o-ethereal-button--available": true
       };
     },
+    etherealCoolClassObject() {
+      return {
+        "o-cool-ethereal-button": true,
+        "c-cool-ethereal-btn": true,
+        "o-cool-ethereal-button--available": true
+      };
+    },
     stars() {
       return Object.values(GameDatabase.endgame.stars)
         .sort((a, b) => a.dmReq - b.dmReq)
@@ -46,7 +56,7 @@ export default {
       return Math.ceil(this.stars.length / 3);
     },
     nextStarText() {
-      if (!this.nextStarReq) return `All stars have been unlocked`;
+      if (this.allStarsUnlocked) return `All stars have been unlocked`;
       return `The next star unlocks at ${format(this.nextStarReq, 2, 2)} Dual Machines`;
     },
     etherealPowerTimeEstimate() {
@@ -66,12 +76,18 @@ export default {
       this.isBetter = Alpha.isDestroyed;
       this.nextStarReq = Ethereal.nextStarDMReq;
       this.stellarProd.copyFrom(Ethereal.stellarProduct);
+      this.allStarsUnlocked = !this.nextStarReq;
+      this.isStarPowerUnlocked = false;
+      this.canUnlockStarPower = this.etherealPower.gte(DC.NUMMAX);
     },
     extendEthereal() {
       return player.endgame.ethereal.isExtended = true;
     },
     getStar(row, column) {
       return () => this.stars[(row - 1) * 3 + column - 1];
+    },
+    unlockStarPower() {
+      return;
     }
   }
 };
@@ -155,6 +171,22 @@ export default {
       <span class="c-normal-ethereal-text">
         {{ nextStarText }}
       </span>
+    </div>
+    <div
+      v-if="!isStarPowerUnlocked"
+      class="l-ethereal-extension-unlock"
+    >
+      <div v-if="!canUnlockStarPower">
+        <span class="c-stellar-glow">Reach {{ format(DC.NUMMAX, 2, 2) }} Ethereal Power to Extend unlock Star Power.</span>
+      </div>
+      <div v-if="canUnlockStarPower">
+        <button
+          :class="etherealCoolClassObject"
+          @click="unlockStarPower"
+        >
+          Unlock Star Power
+        </button>
+      </div>
     </div>
   </div>
 </template>
