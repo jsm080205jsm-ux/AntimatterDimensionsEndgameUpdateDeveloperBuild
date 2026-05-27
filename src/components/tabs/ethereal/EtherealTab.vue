@@ -176,7 +176,7 @@ export default {
       </span>
     </div>
     <div
-      v-if="!isStarPowerUnlocked"
+      v-if="!isStarPowerUnlocked && allStarsUnlocked"
       class="l-ethereal-extension-unlock"
     >
       <div v-if="!canUnlockStarPower">
