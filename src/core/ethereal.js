@@ -105,3 +105,7 @@ export function resetForStar(id) {
   player.endgame.ethereal.sector = 1;
   player.endgame.ethereal.stars[starName] = player.endgame.ethereal.stars[starName].add(resetFormula);
 }
+
+export function getStarPowerGainPerSecond() {
+  return Decimal.pow10(Ethereal.stellarProduct.div(DC.NUMMAX).max(1).log10().div(25));
+}
