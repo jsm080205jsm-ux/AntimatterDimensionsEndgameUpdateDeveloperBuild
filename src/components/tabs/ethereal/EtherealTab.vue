@@ -108,7 +108,7 @@ export default {
       this.starPower.copyFrom(Ethereal.starPower);
       this.starPowerPerSecond.copyFrom(getStarPowerGainPerSecond());
       this.starBoost.copyFrom(Ethereal.allStarBoost);
-      this.nextGeneration.copyFrom(Ethereal.nextGeneration ? new Decimal(Infinity) : Ethereal.nextGeneration);
+      this.nextGeneration.copyFrom(!Ethereal.nextGeneration ? new Decimal(Infinity) : Ethereal.nextGeneration);
       this.allGenerationsUnlocked = !this.nextGeneration;
     },
     extendEthereal() {
