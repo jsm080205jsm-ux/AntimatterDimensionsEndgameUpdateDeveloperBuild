@@ -1052,7 +1052,7 @@ export function gameLoop(passedDiff, options = {}) {
   if (Ethereal.isStarPowerUnlocked) {
     Currency.starPower.add(getStarPowerGainPerSecond().times(realDiff).div(1000));
     for (let star = 0; star < 9; star++) {
-      freeStarReset(star);
+      freeStarReset(star, realDiff);
     }
   }
   
