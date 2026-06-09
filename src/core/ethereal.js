@@ -42,6 +42,19 @@ export const Ethereal = {
   },
   get allStarBoost() {
     return Decimal.max(this.starPower.pow(0.2), 1);
+  },
+  get nextGeneration() {
+    let arr = [];
+    let unl = [6, 8, 10, 12, 15, 18, 21, 25, 30];
+    for (let t = 0; t < 9; t++) {
+      if (Ethereal.starPower.lt(Decimal.pow10(unl[t]))) arr.push(Decimal.pow10(unl[t]));
+    }
+    return arr[0];
+  },
+  starGeneration(tier) {
+    let unl = [6, 8, 10, 12, 15, 18, 21, 25, 30][tier];
+    if (Ethereal.starPower.lt(Decimal.pow10(unl))) return DC.D0;
+    return Ethereal.starPower.max(1).log10().div(unl).pow(2).div(100);
   }
 };
 
