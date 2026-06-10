@@ -644,10 +644,6 @@ class AntimatterDimensionState extends DimensionState {
         const pelleOnly = Pelle.isDoomed ? DivineDimensions.conversionFormula2 * Accelerators.cosmic.effectValue2 : 1;
         production = Decimal.pow10(Decimal.pow(log10, getAdjustedGlyphEffect("effarigantimatter") * Effects.product(EndgameMastery(101), EndgameUpgrade(15), SingularityMilestone.antimatterExponentPower, Achievement(233)) * endgameMultValue * EtherealStars.black.reward.toNumber() * pelleOnly));
       }
-      if (production.gt(1e10) && Pelle.isDoomed) {
-        const log10 = production.log10().log10();
-        production = Decimal.pow10(Decimal.pow10(Decimal.pow(log10, DivinityUpgrade.divineL1U4.effectOrDefault(1) * Accelerators.cosmic.effectValue3)));
-      }
       if (ResurgenceUpgrade.ipSurge.isBought && !player.disablePostReality) {
         production = production.times(gainedInfinityPoints());
       }
@@ -665,6 +661,10 @@ class AntimatterDimensionState extends DimensionState {
       if (production.gt(Decimal.pow10(9e15)) && Pelle.isDoomed && player.celestials.pelle.divinities >= 1) {
         const log10 = production.log10();
         production = Decimal.pow10(Decimal.pow(log10.div(9e15), 0.16 / Math.pow(2, player.celestials.pelle.divinities)).times(9e15));
+      }
+      if (production.gt(1e10) && Pelle.isDoomed) {
+        const log10 = production.log10().log10();
+        production = Decimal.pow10(Decimal.pow10(Decimal.pow(log10, DivinityUpgrade.divineL1U4.effectOrDefault(1) * Accelerators.cosmic.effectValue3)));
       }
       if (production.gt(Decimal.pow10(1e200)) && !Pelle.isDoomed) {
         const log10 = production.log10();
