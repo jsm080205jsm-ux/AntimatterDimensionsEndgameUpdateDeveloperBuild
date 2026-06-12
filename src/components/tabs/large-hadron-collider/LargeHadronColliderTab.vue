@@ -19,6 +19,7 @@ export default {
       highestAntimatter: new Decimal(),
       nullMatter: new Decimal(),
       nullPerSecond: new Decimal(),
+      nullified: false
     };
   },
   computed: {
@@ -52,6 +53,7 @@ export default {
       this.nullPerSecond.copyFrom(!LHC.voidRunning ? DC.D0 :
         Decimal.log10(Decimal.pow(AntimatterDimension(1).productionPerSecond, 0.01).max(1)).pow(
         Decimal.log10(Decimal.log10(Decimal.pow(AntimatterDimension(1).productionPerSecond, 0.01).max(1)).max(1))));
+      this.nullified = player.endgame.largeHadronCollider.void.nullified;
     },
     formatNullAmount(amount) {
       return amount.gte(DC.NUMMAX) ? Notations.current.infinite : format(amount, 2, 2);
@@ -115,9 +117,13 @@ export default {
       </div>
     </div>
     <div>
-      Entering the Void will force an Endgame reset and disable all Reality and beyond mechanics.
+      Entering The Void will force an Endgame reset and disable all Reality and beyond mechanics.
       <br>
       Your Antimatter will slowly decay and you will gain Null Matter from the decayed Antimatter.
+      <span v-if="nullified">
+        <br>
+        Since you Nullified the Multiverse, the ANR Perk and Passive EP Generation are reenabled inside The Void.
+      </span>
     </div>
     <NullUpgradesTabComponent />
   </div>
