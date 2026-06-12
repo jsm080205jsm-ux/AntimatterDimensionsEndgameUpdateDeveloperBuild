@@ -87,6 +87,7 @@ export default {
       else enterTheVoid();
     },
     changeMode() {
+      if (this.isRunning) return;
       player.endgame.largeHadronCollider.void.mode = (player.endgame.largeHadronCollider.void.mode + 1) % 2;
     }
   }
