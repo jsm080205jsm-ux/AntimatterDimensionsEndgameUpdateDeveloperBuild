@@ -36,6 +36,7 @@ export default {
     return {
       bigCrunch: false,
       divine: false,
+      nullified: false,
       hasReality: false,
       newGameKey: "",
       tabName: "",
@@ -57,8 +58,10 @@ export default {
     update() {
       const crunchButtonVisible = !player.break && Player.canCrunch;
       const divinityVisible = Pelle.isDoomed && player.antimatter.gte(DC.ENUMMAX);
+      const nullifyVisible = player.endgame.largeHadronCollider.void.nullMatter.gte(DC.NUMMAX);
       this.bigCrunch = crunchButtonVisible && Time.bestInfinityRealTime.totalMinutes.gt(1);
       this.divine = divinityVisible;
+      this.nullified = nullifyVisible;
       this.hasReality = PlayerProgress.realityUnlocked();
       // This only exists to force a key-swap after pressing the button to start a new game; the news ticker can break
       // if it isn't redrawn
@@ -101,8 +104,9 @@ export default {
         />
         <BigCrunchButton />
         <DivinityButton />
+        <NullifyButton />
         <div
-          v-if="!bigCrunch && !divine"
+          v-if="!bigCrunch && !divine && !nullified"
           class="tab-container"
         >
           <HeaderPrestigeGroup />
