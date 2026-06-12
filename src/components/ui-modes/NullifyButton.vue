@@ -9,7 +9,8 @@ export default {
   },
   methods: {
     update() {
-      this.shouldDisplay = player.endgame.largeHadronCollider.void.nullMatter.gte(DC.NUMMAX);
+      this.shouldDisplay = player.endgame.largeHadronCollider.void.nullMatter.gte(DC.NUMMAX) &&
+        !player.endgame.largeHadronCollider.void.nullified;
       if (!this.shouldDisplay) return;
       this.isModern = player.options.newUI;
     },
