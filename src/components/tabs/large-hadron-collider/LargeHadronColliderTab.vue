@@ -156,7 +156,7 @@ export default {
     <div v-if="voidMode === 1">
       Entering The Void in Nullified Mode will force an Endgame reset and Dilate your Antimatter by {{ format(0.01, 2, 2) }}.
       <br>
-      You will generate Null Particles based on your Antimatter.
+      You will generate Null Particles based on your Antimatter, which empower Antimatter Dimensions while inside The Void in normal mode.
     </div>
     <NullUpgradesTabComponent />
   </div>
