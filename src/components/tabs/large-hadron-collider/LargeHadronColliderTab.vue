@@ -53,6 +53,9 @@ export default {
         Decimal.log10(Decimal.pow(AntimatterDimension(1).productionPerSecond, 0.01).max(1)).pow(
         Decimal.log10(Decimal.log10(Decimal.pow(AntimatterDimension(1).productionPerSecond, 0.01).max(1)).max(1))));
     },
+    formatNullAmount(amount) {
+      return amount.gte(DC.NUMMAX) ? Notations.current.infinite : format(amount, 2, 2);
+    },
     glitchAnim() {
       let flux = Math.random() / 4;
       let negFlux = -flux;
@@ -96,7 +99,7 @@ export default {
     <div v-if="highestAntimatter.gt(10)">
       <span class="c-void-antimatter-amount">[Your highest Antimatter inside The Void is {{ format(highestAntimatter, 2, 1) }}.]</span>
       <br>
-      <span class="c-null">[You have {{ format(nullMatter, 2, 2) }} Null Matter. +{{ format(nullPerSecond, 2, 2) }}/s]</span>
+      <span class="c-null">[You have {{ formatNullAmount(nullMatter) }} Null Matter. +{{ formatNullAmount(nullPerSecond) }}/s]</span>
     </div>
     <div class="l-void-run">
       <div
