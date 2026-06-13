@@ -66,7 +66,7 @@ export default {
       this.nullified = player.endgame.largeHadronCollider.void.nullified;
       this.voidMode = player.endgame.largeHadronCollider.void.mode;
       this.nullParticles.copyFrom(player.endgame.largeHadronCollider.void.nullParticles);
-      this.nullParticlesPerSecond.copyFrom(getNullParticleGainPerSecond());
+      this.nullParticlesPerSecond.copyFrom(!LHC.nullifiedVoidRunning ? DC.D0 : getNullParticleGainPerSecond());
     },
     formatNullAmount(amount) {
       return amount.gte(DC.NUMMAX) ? Notations.current.infinite : format(amount, 2, 2);
