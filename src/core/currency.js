@@ -734,8 +734,9 @@ Currency.divineMatter = new class extends DecimalCurrency {
     const newValue = Decimal.min(value, DivineDimensions.HARDCAP);
     player.celestials.pelle.divinity.divineMatter = newValue;
     player.records.thisCondense.maxVM = player.records.thisCondense.maxVM.max(newValue);
+    player.records.thisSupernova.maxVM = player.records.thisSupernova.maxVM.max(newValue);
     player.records.totalDivineMatter = player.records.totalDivineMatter.max(newValue);
-    player.records.totalCondenseDivineMatter = player.records.totalCondenseDivineMatter.max(newValue);
+    player.records.totalSupernovaDivineMatter = player.records.totalSupernovaDivineMatter.max(newValue);
   }
 
   get startingValue() {
@@ -745,6 +746,7 @@ Currency.divineMatter = new class extends DecimalCurrency {
   reset() {
     super.reset();
     player.records.thisCondense.maxVM = this.startingValue;
+    player.records.thisSupernova.maxVM = this.startingValue;
   }
 }();
 
