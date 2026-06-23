@@ -56,6 +56,7 @@ export default {
 
 <style scoped>
 .c-prestige-row {
+  display: flex;
   flex-direction: row;
 }
 
