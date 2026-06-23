@@ -416,6 +416,14 @@ export function addCondenseTime(time, realTime, vs, condenses) {
   player.records.recentCondenses.unshift([time, realTime, vs, condenses]);
 }
 
+export function resetCondenseRuns() {
+  player.records.recentCondenses = Array.from(
+    { length: 10 },
+    () => [DC.E9E15, Number.MAX_VALUE, DC.D1, DC.D1]
+  );
+  GameCache.bestRunVSPM.invalidate();
+}
+
 export function addSupernovaTime(time, realTime, neb, supernovae) {
   player.records.recentSupernovae.pop();
   player.records.recentSupernovae.unshift([time, realTime, neb, supernovae]);
