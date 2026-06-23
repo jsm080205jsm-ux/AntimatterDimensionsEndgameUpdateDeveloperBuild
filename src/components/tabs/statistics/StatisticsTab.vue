@@ -727,7 +727,7 @@ export default {
         ({{ supernova.thisReal.toStringShort() }} real time)
       </div>
       <div>
-        Your best Nebulae Points per minute
+        Your best Nebulae per minute
         is {{ format(supernova.bestRate, 2, 2) }}.
       </div>
       <br>
