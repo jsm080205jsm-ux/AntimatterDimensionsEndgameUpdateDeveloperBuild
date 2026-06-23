@@ -564,7 +564,8 @@ window.player = {
       time: DC.BEMAX,
       realTime: Number.MAX_VALUE,
       bestNebminTotal: DC.D0,
-      bestSupernovaePerMs: DC.D0
+      bestSupernovaePerMs: DC.D0,
+      maxNeb: DC.D0
     },
     permanent: {
       maxCP: DC.D0,
