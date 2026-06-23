@@ -349,8 +349,8 @@ export function supernova(force, auto, specialConditions = {}) {
   player.records.thisSupernova.bestNebmin = DC.D0;
   player.records.thisSupernova.bestCondensesPerMs = DC.D0;
   resetForDivineStars(true);
-  player.records.thisCondense.maxVM = DC.D0;
-  player.records.thisSupernova.maxVM = DC.D0;
+  player.records.thisCondense.maxVM = DC.E1;
+  player.records.thisSupernova.maxVM = DC.E1;
 
   initializeResourcesAfterSupernova();
 
@@ -366,8 +366,8 @@ export function initializeResourcesAfterSupernova() {
   player.records.thisCondense.realTime = 0;
   player.records.thisSupernova.time = DC.D0;
   player.records.thisSupernova.realTime = 0;
-  player.records.totalCondenseDivineMatter = DC.D0;
-  player.records.totalSupernovaDivineMatter = DC.D0;
+  player.records.totalCondenseDivineMatter = DC.E1;
+  player.records.totalSupernovaDivineMatter = DC.E1;
 }
 
 export function gainedSupernovae() {
