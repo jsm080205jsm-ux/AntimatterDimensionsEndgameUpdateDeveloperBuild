@@ -63,14 +63,36 @@ export default {
         ]
       ];
     },
+    grid4() {
+      return [
+        [
+          DivinityUpgrade.divineL4U1,
+          DivinityUpgrade.divineL4U2,
+          DivinityUpgrade.divineL4U3,
+          DivinityUpgrade.divineL4U4,
+          DivinityUpgrade.divineL4U5,
+        ]
+      ];
+    },
+    grid5() {
+      return [
+        [
+          DivinityUpgrade.divineL5U1,
+          DivinityUpgrade.divineL5U2,
+          DivinityUpgrade.divineL5U3,
+          DivinityUpgrade.divineL5U4,
+          DivinityUpgrade.divineL5U5,
+        ]
+      ];
+    }
   },
   methods: {
     update() {
       this.has1 = DivinityMilestone.divineDimensions.isReached;
       this.has2 = PlayerProgress.condenseUnlocked();
       this.has3 = (DivinityUpgrades.all.filter(u => u.layer === 2 && u.isBought).length === DivinityUpgrades.all.filter(u => u.layer === 2).length);
-      //this.has4 = PlayerProgress.nebulaeUnlocked();
-      //this.has5 = (DivinityUpgrades.all.filter(u => u.layer === 4 && u.isBought).length === DivinityUpgrades.all.filter(u => u.layer === 4).length);
+      this.has4 = PlayerProgress.supernovaUnlocked();
+      this.has5 = (DivinityUpgrades.all.filter(u => u.layer === 4 && u.isBought).length === DivinityUpgrades.all.filter(u => u.layer === 4).length);
     }
   }
 };
@@ -116,6 +138,38 @@ export default {
       </div>
       <div
         v-for="(column, columnId) in grid3"
+        :key="columnId"
+        class="l-divinity-upgrade-grid__row"
+      >
+        <DivinityUpgradeButton
+          v-for="upgrade in column"
+          :key="upgrade.id"
+          :upgrade="upgrade"
+        />
+      </div>
+    </div>
+    <div v-if="has4">
+      <div class="c-divinity-header">
+        Layer Four Upgrades
+      </div>
+      <div
+        v-for="(column, columnId) in grid4"
+        :key="columnId"
+        class="l-divinity-upgrade-grid__row"
+      >
+        <DivinityUpgradeButton
+          v-for="upgrade in column"
+          :key="upgrade.id"
+          :upgrade="upgrade"
+        />
+      </div>
+    </div>
+    <div v-if="has5">
+      <div class="c-divinity-header">
+        Layer Five Upgrades
+      </div>
+      <div
+        v-for="(column, columnId) in grid5"
         :key="columnId"
         class="l-divinity-upgrade-grid__row"
       >
