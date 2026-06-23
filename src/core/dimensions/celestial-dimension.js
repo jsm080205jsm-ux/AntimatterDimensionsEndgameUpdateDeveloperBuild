@@ -106,6 +106,7 @@ class CelestialDimensionState extends DimensionState {
     mult = mult.pow(CelestialDimensions.alphaDecayRemnant);
     mult = mult.times(CelestialDimBoost.multiplierToCDTier());
     mult = mult.timesEffectOf(CelestialInfinityUpgrade.antimatterCelestialDimBuff);
+    mult = mult.powEffectOf(ResurgenceUpgrade.synergy2);
     return mult;
   }
 
