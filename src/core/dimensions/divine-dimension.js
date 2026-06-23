@@ -263,9 +263,9 @@ function giveCondenseRewards(auto) {
   player.records.thisCondense.bestVSmin = DC.D0;
 }
 
-export function resetForDivineStars() {
+export function resetForDivineStars(stars = true) {
   if (Currency.divineMatter.lt(DC.NUMMAX)) return;
-  giveCondenseRewards();
+  if (stars) giveCondenseRewards();
   Endgame.resetNoReward();
   DivineDimensions.fullReset();
   player.records.thisCondense.maxVM = DC.E1;
@@ -287,4 +287,77 @@ export function resetForDivineStars() {
 
 export function preProductionGenerateVS(diff) {
   Currency.divineStars.add(DivinityUpgrade.divineL3U4.effectOrDefault(DC.D0).times(diff).div(60000));
+}
+
+function giveSupernovaRewards(auto) {
+  player.records.bestSupernova.time = Decimal.min(player.records.thisSupernova.time, player.records.bestSupernova.time);
+  Currency.nebulae.add(gainedNebulae());
+
+  const newSupernovae = gainedSupernovae();
+
+  Currency.supernovae.add(newSupernovae);
+
+  addSupernovaTime(
+    player.records.thisSupernova.time,
+    player.records.thisSupernova.realTime,
+    gainedNebulae(),
+    newSupernovae
+  );
+
+  player.records.bestSupernova.time =
+    Decimal.min(player.records.bestSupernova.time, player.records.thisSupernova.time);
+  player.records.bestSupernova.realTime =
+    Math.min(player.records.bestSupernova.realTime, player.records.thisSupernova.realTime);
+
+  player.records.bestSupernova.bestSupernovaePerMs = player.records.bestSupernova.bestSupernovaePerMs.clampMin(
+    newSupernovae.div(Math.clampMin(33, player.records.thisSupernova.realTime))
+  );
+  player.records.bestSupernova.bestNebminTotal =
+    player.records.bestSupernova.bestNebminTotal.max(player.records.thisSupernova.bestNebmin);
+}
+
+export function supernovaResetRequest() {
+  if (player.celestials.pelle.divinity.divineStars.lt(DC.NUMMAX)) return;
+  if (GameEnd.creditsEverClosed) return;
+  supernova();
+}
+
+export function supernova(force, auto, specialConditions = {}) {
+  if (!force) {
+    if (player.celestials.pelle.divinity.divineStars.lt(DC.NUMMAX)) return false;
+    EventHub.dispatch(GAME_EVENT.SUPERNOVA_RESET_BEFORE);
+    giveSupernovaRewards(auto);
+  }
+
+  initializeResourcesAfterSupernova();
+
+  resetCondenseRuns();
+
+  Currency.divineStars.reset();
+  player.records.thisCondense.bestVSmin = DC.D0;
+  player.records.bestCondense.bestVSminSupernova = DC.D0;
+  player.records.thisSupernova.bestNebmin = DC.D0;
+  player.records.thisSupernova.bestCondensesPerMs = DC.D0;
+  resetForDivineStars(false);
+  player.records.thisCondense.maxVM = DC.D0;
+  player.records.thisSupernova.maxVM = DC.D0;
+
+  EventHub.dispatch(GAME_EVENT.SUPERNOVA_RESET_AFTER);
+  return true;
+}
+
+export function initializeResourcesAfterSupernova() {
+  Currency.condenses.reset();
+  player.records.bestCondense.time = new Decimal(999999999999);
+  player.records.bestCondense.realTime = 999999999999;
+  player.records.thisCondense.time = DC.D0;
+  player.records.thisCondense.realTime = 0;
+  player.records.thisSupernova.time = DC.D0;
+  player.records.thisSupernova.realTime = 0;
+  player.records.totalCondenseDivineMatter = DC.D0;
+  player.records.totalSupernovaDivineMatter = DC.D0;
+}
+
+export function gainedSupernovae() {
+  return DC.D1;
 }
