@@ -157,7 +157,8 @@ export const DivineDimensions = {
   all: DivineDimension.index.compact(),
 
   get HARDCAP() {
-    return DC.NUMMAX.pow(Decimal.log10(player.celestials.pelle.divinity.divineStars.min(DC.NUMMAX).add(1)).add(1));
+    return DivinityUpgrade.divineL4U5.isBought ? new Decimal(Infinity) :
+      DC.NUMMAX.pow(Decimal.log10(player.celestials.pelle.divinity.divineStars.min(DC.NUMMAX).add(1)).add(1));
   },
 
   get energyPerSecond() {
