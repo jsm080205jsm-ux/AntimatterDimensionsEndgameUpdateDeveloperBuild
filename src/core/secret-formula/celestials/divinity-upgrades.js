@@ -269,7 +269,7 @@ export const divinityUpgrades = {
     id: "divineL4U2",
     layer: 4,
     cost: new Decimal(3),
-    description: "Keep the first five Layer Two Upgrades on Supernova"
+    description: "Keep the first five Layer Two Upgrades on Supernova and unlock autobuyers for all Divine Dimensions"
   },
   divineL4U3: {
     name: "Divine Art",
