@@ -60,6 +60,9 @@ export default {
     shardsGainedText() {
       return quantify("Relic Shard", this.shardsGained, 2);
     },
+    warpMessage() {
+      return false ? "Curse Your Reality" : "Enter Pelle's Domain";
+    },
     classObject() {
       return {
         "c-reality-button--unlocked": this.canReality || this.readyToWarp,
@@ -141,9 +144,6 @@ export default {
     formatThresholdText(condition, threshold, resourceName) {
       if (condition) return "";
       return `(${format(threshold, 2, 2)} ${resourceName} to improve)`;
-    },
-    warpMessage() {
-      return false ? "Curse Your Reality" : "Enter Pelle's Domain";
     },
     // Make the button have a visual animation if Realitying will give a reward
     hasSpecialReward() {
