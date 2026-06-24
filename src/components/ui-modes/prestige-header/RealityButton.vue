@@ -182,7 +182,7 @@ export default {
           <div>Purchase the study in the Eternity tab to unlock a new Reality</div>
         </template>
         <div
-          v-if="canReality"
+          v-if="canReality && !readyToWarp"
           class="infotooltiptext"
         >
           <div>Other resources gained:</div>
