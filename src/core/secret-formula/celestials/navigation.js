@@ -2012,8 +2012,8 @@ export const celestialNavigation = {
       incompleteClass: "c-celestial-nav__test-incomplete",
       position: Positions.alphaUnlock,
       ring: {
-        rMajor: 107,
-        rMinor: 95,
+        rMajor: 127,
+        rMinor: 115,
       },
       legend: {
         text: complete => {
@@ -2027,7 +2027,7 @@ export const celestialNavigation = {
           ];
         },
         angle: 105,
-        diagonal: 180,
+        diagonal: 120,
         horizontal: 16,
       },
       bgDrawOrder: CELESTIAL_NAV_DRAW_ORDER.NODE_BG + 750,
@@ -2036,7 +2036,7 @@ export const celestialNavigation = {
       const pathStart = 0.5 * Math.PI;
       const pathEnd = pathStart + 6 * Math.PI;
       const path = LogarithmicSpiral.fromPolarEndpoints(Positions.alphaUnlock,
-        pathStart, 10, pathEnd, 100);
+        pathStart, 10, pathEnd, 120);
       return {
         pathStart,
         pathEnd,
