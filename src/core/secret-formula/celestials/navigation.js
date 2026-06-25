@@ -2077,8 +2077,8 @@ export const celestialNavigation = {
             `Reach ${formatInt(cip)} / ${formatInt(cost)} Celestial Points of Infinity`
           ];
         },
-        angle: 135,
-        diagonal: 50,
+        angle: 120,
+        diagonal: 80,
         horizontal: 16,
       },
     },
@@ -2114,7 +2114,7 @@ export const celestialNavigation = {
           ];
         },
         angle: 285,
-        diagonal: 80,
+        diagonal: 60,
         horizontal: 16,
       },
     },
