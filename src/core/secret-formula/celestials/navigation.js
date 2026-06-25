@@ -567,7 +567,8 @@ export const celestialNavigation = {
   },
   "enslaved-unlock-glyph-level": {
     visible: () => EffarigUnlock.eternity.isUnlocked,
-    complete: () => player.records.bestReality.glyphLevel / 5000,
+    complete: () => (EndgameUpgrade(6).isBought ? player.records.bestEndgame.glyphLevel :
+      player.records.bestReality.glyphLevel) / 5000,
     drawOrder: -1,
     node: {
       clickAction: () => Tab.celestials.enslaved.show(true),
@@ -587,7 +588,8 @@ export const celestialNavigation = {
           const goal = 5000;
           return [
             "Break a chain",
-            `Reach Glyph level ${formatInt(Math.min(player.records.bestReality.glyphLevel, goal))}/${formatInt(goal)}`
+            `Reach Glyph level ${formatInt(Math.min((EndgameUpgrade(6).isBought ? player.records.bestEndgame.glyphLevel :
+              player.records.bestReality.glyphLevel), goal))}/${formatInt(goal)}`
           ];
         },
         angle: -45,
@@ -1997,6 +1999,53 @@ export const celestialNavigation = {
       completeWidth: 6,
       incompleteWidth: 4,
     },
+  },
+  "cd-expansion": {
+    visible: () => Alpha.isUnlocked,
+    complete: () => {
+      if (Alpha.isDestroyedForDisplay) return 1;
+      return player.celestials.alpha.stage / 28;
+    },
+    node: {
+      clickAction: () => Tab.celestials.alpha.show(true),
+      completeClass: "c-celestial-nav__alpha",
+      incompleteClass: "c-celestial-nav__test-incomplete",
+      position: Positions.alphaUnlock,
+      ring: {
+        rMajor: 107,
+        rMinor: 95,
+      },
+      legend: {
+        text: complete => {
+          if (complete >= 1) return "Celestial Dimension Expansion";
+          if (complete === 0) return "Unlock Alpha's Reality";
+          const layer = player.celestials.alpha.stage;
+          return [
+            "Expand your Celestial Dimensions",
+            `Beat ${formatInt(layer)} / ${formatInt(28)}`,
+            "Layers of Alpha's Reality."
+          ];
+        },
+        angle: 285,
+        diagonal: 150,
+        horizontal: 16,
+      },
+      bgDrawOrder: CELESTIAL_NAV_DRAW_ORDER.NODE_BG + 750,
+    },
+    connector: (function() {
+      const pathStart = 0.5 * Math.PI;
+      const pathEnd = pathStart + 4 * Math.PI;
+      const path = LogarithmicSpiral.fromPolarEndpoints(Positions.alphaUnlock,
+        pathStart, 10, pathEnd, 100);
+      return {
+        pathStart,
+        pathEnd,
+        path,
+        pathPadStart: 0,
+        pathPadEnd: 0,
+        fill: "#00ff00",
+      };
+    }()),
   },
   // All the fill elements are generated outside of here as a loop, and then unpacked here with the spread operator
   ...riftFillElements,
